@@ -1,65 +1,71 @@
 const cards = document.querySelectorAll('.card');
+
 const leftBtn = document.querySelector('.left');
+
 const rightBtn = document.querySelector('.right');
+
+const slider = document.querySelector('.slider');
 
 let activeIndex = 1;
 
-function updateCards() {
+function updateSlider(){
 
-  cards.forEach((card, index) => {
+  cards.forEach((card,index)=>{
 
     card.classList.remove('active');
 
-    if(index === activeIndex) {
+    if(index === activeIndex){
+
       card.classList.add('active');
+
     }
+
   });
+
+  const offset = (activeIndex * -430) + 430;
+
+  slider.style.transform = `translateX(${offset}px)`;
+
 }
 
-rightBtn.addEventListener('click', () => {
+rightBtn.addEventListener('click',()=>{
 
   activeIndex++;
 
-  if(activeIndex >= cards.length) {
+  if(activeIndex >= cards.length){
+
     activeIndex = 0;
+
   }
 
-  updateCards();
+  updateSlider();
+
 });
 
-leftBtn.addEventListener('click', () => {
+leftBtn.addEventListener('click',()=>{
 
   activeIndex--;
 
-  if(activeIndex < 0) {
+  if(activeIndex < 0){
+
     activeIndex = cards.length - 1;
+
   }
 
-  updateCards();
+  updateSlider();
+
 });
 
-cards.forEach((card) => {
+cards.forEach((card,index)=>{
 
-  card.addEventListener('mousemove', (e) => {
+  card.addEventListener('click',()=>{
 
-    const rect = card.getBoundingClientRect();
+    activeIndex = index;
 
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
+    updateSlider();
 
-    const rotateY = ((x / rect.width) - 0.5) * 20;
-    const rotateX = ((y / rect.height) - 0.5) * -20;
-
-    card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
   });
 
-  card.addEventListener('mouseleave', () => {
-
-    if(card.classList.contains('active')) {
-      card.style.transform = 'scale(1.08)';
-    }
-    else {
-      card.style.transform = 'scale(0.9) rotateY(20deg)';
-    }
-  });
 });
+
+updateSlider();
