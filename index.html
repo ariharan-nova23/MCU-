@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MCU Slider</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="bg-glow"></div>
+
+  <header>
+    <h1>MARVEL</h1>
+
+    <nav>
+      <a href="#">Heroes</a>
+      <a href="#">Universe</a>
+      <a href="#">Timeline</a>
+    </nav>
+  </header>
+
+  <section class="main-section">
+
+    <h2 class="title">SELECT YOUR HERO</h2>
+
+    <div class="slider-container">
+
+      <button class="nav-btn left">❮</button>
+
+      <div class="slider">
+
+        <div class="card thor">
+          <img src="https://i.imgur.com/U8YQG9f.png" alt="Thor">
+          <h3>THOR</h3>
+          <p>God Of Thunder</p>
+        </div>
+
+        <div class="card active ironman">
+          <img src="https://i.imgur.com/KM9Xq6u.png" alt="Iron Man">
+          <h3>IRON MAN</h3>
+          <p>Genius Billionaire</p>
+        </div>
+
+        <div class="card spiderman">
+          <img src="https://i.imgur.com/2DhmtJ4.png" alt="Spider-Man">
+          <h3>SPIDER-MAN</h3>
+          <p>Friendly Neighborhood</p>
+        </div>
+
+      </div>
+
+      <button class="nav-btn right">❯</button>
+
+    </div>
+
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
