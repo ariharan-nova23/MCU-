@@ -22,7 +22,9 @@ function updateSlider(){
 
   });
 
-  const offset = (activeIndex * -430) + 430;
+  const step = 430;
+
+  const offset = (step / 2) * (cards.length - 1) - activeIndex * step;
 
   slider.style.transform = `translateX(${offset}px)`;
 
